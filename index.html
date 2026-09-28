@@ -1,586 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>smartdigitalai — Digital growth for local businesses</title>
-<meta name="description" content="Websites, ads, videos and ongoing tech support for local businesses — built and managed by smartdigitalai.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>smartdigitalai — स्थानीय व्यवसायों के लिए डिजिटल ग्रोथ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0F1B2D;
-    --bg-alt:#16243A;
-    --bg-alt-2:#1C2E48;
-    --accent:#E8A33D;
-    --accent-soft:#F0C179;
-    --accent-2:#2FA88A;
-    --text:#F2F0EA;
-    --text-muted:#9FACC0;
-    --border:rgba(242,240,234,0.10);
-    --radius-sm:6px;
-    --radius-md:14px;
-    --maxw:1120px;
-  }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
-
-  html{scroll-behavior:smooth;}
-
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    line-height:1.15;
-    letter-spacing:-0.01em;
-  }
-
-  a{color:inherit;text-decoration:none;}
-
-  img{max-width:100%;display:block;}
-
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding:0 24px;
-  }
-
-  p{color:var(--text-muted);max-width:60ch;}
-
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:3px;
-  }
-
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(15,27,45,0.88);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-
-  nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px 24px;
-    max-width:var(--maxw);
-    margin:0 auto;
-  }
-
-  .logo{
-    font-family:'Fraunces', serif;
-    font-size:1.25rem;
-    font-weight:500;
-    letter-spacing:-0.01em;
-  }
-  .logo span{color:var(--accent);}
-
-  .nav-links{
-    display:flex;
-    gap:32px;
-    align-items:center;
-    list-style:none;
-  }
-
-  .nav-links a{
-    color:var(--text-muted);
-    font-size:0.95rem;
-    transition:color .15s ease;
-  }
-  .nav-links a:hover{color:var(--text);}
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:11px 22px;
-    border-radius:var(--radius-sm);
-    font-size:0.95rem;
-    font-weight:500;
-    border:1px solid transparent;
-    cursor:pointer;
-    transition:transform .15s ease, background .15s ease, border-color .15s ease;
-  }
-
-  .btn-primary{
-    background:var(--accent);
-    color:#1A1305;
-  }
-  .btn-primary:hover{background:var(--accent-soft);}
-
-  .btn-ghost{
-    border-color:var(--border);
-    color:var(--text);
-  }
-  .btn-ghost:hover{border-color:var(--text-muted);}
-
-  .nav-cta{display:none;}
-  @media(min-width:860px){
-    .nav-cta{display:inline-flex;}
-  }
-
-  .nav-links{display:none;}
-  @media(min-width:860px){
-    .nav-links{display:flex;}
-  }
-
-  .mobile-toggle{
-    display:inline-flex;
-    background:none;
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
-    color:var(--text);
-    padding:8px 12px;
-    font-size:0.9rem;
-  }
-  @media(min-width:860px){
-    .mobile-toggle{display:none;}
-  }
-
-  .mobile-menu{
-    display:none;
-    flex-direction:column;
-    gap:2px;
-    padding:8px 24px 20px;
-    border-bottom:1px solid var(--border);
-  }
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{
-    padding:12px 4px;
-    color:var(--text-muted);
-    border-bottom:1px solid var(--border);
-  }
-  .mobile-menu a:last-child{border-bottom:none;}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:88px 0 72px;
-    display:grid;
-    gap:56px;
-  }
-  @media(min-width:900px){
-    .hero{
-      grid-template-columns:1.1fr 0.9fr;
-      align-items:center;
-      padding:120px 0 96px;
-    }
-  }
-
-  .eyebrow{
-    color:var(--accent-2);
-    font-size:0.9rem;
-    font-weight:500;
-    margin-bottom:18px;
-  }
-
-  .hero h1{
-    font-size:clamp(2.1rem, 4.6vw, 3.4rem);
-    max-width:14ch;
-    margin-bottom:22px;
-  }
-
-  .hero p.lead{
-    font-size:1.08rem;
-    max-width:46ch;
-    margin-bottom:32px;
-  }
-
-  .hero-ctas{
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-    margin-bottom:36px;
-  }
-
-  .hero-note{
-    font-size:0.88rem;
-    color:var(--text-muted);
-  }
-
-  /* growth graphic */
-  .growth-graphic{
-    position:relative;
-    height:320px;
-    border:1px solid var(--border);
-    border-radius:var(--radius-md);
-    background:linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
-    display:flex;
-    align-items:flex-end;
-    padding:28px;
-    gap:14px;
-    overflow:hidden;
-  }
-  .growth-graphic .bar{
-    flex:1;
-    background:var(--bg-alt-2);
-    border-radius:4px 4px 0 0;
-    position:relative;
-  }
-  .growth-graphic .bar.accent{background:var(--accent);}
-  .growth-graphic .bar.accent2{background:var(--accent-2);}
-  .growth-graphic .cap{
-    position:absolute;
-    top:-26px;
-    left:0;
-    right:0;
-    text-align:center;
-    font-size:0.75rem;
-    color:var(--text-muted);
-  }
-
-  /* ---------- SECTION HEADERS ---------- */
-  .section{padding:80px 0;}
-  .section-head{
-    max-width:640px;
-    margin-bottom:48px;
-  }
-  .section-head h2{
-    font-size:clamp(1.7rem, 3vw, 2.3rem);
-    margin-bottom:16px;
-  }
-
-  .divider{
-    border:none;
-    border-top:1px solid var(--border);
-  }
-
-  /* ---------- SERVICES (asymmetric grid) ---------- */
-  .services-grid{
-    display:grid;
-    gap:20px;
-    grid-template-columns:1fr;
-  }
-  @media(min-width:760px){
-    .services-grid{
-      grid-template-columns:repeat(6,1fr);
-    }
-    .services-grid .card:nth-child(1){grid-column:span 4;}
-    .services-grid .card:nth-child(2){grid-column:span 2;}
-    .services-grid .card:nth-child(3){grid-column:span 2;}
-    .services-grid .card:nth-child(4){grid-column:span 4;}
-    .services-grid .card:nth-child(5){grid-column:span 3;}
-    .services-grid .card:nth-child(6){grid-column:span 3;}
-  }
-
-  .card{
-    background:var(--bg-alt);
-    border:1px solid var(--border);
-    border-radius:var(--radius-md);
-    padding:30px;
-  }
-
-  .card h3{
-    font-size:1.2rem;
-    margin-bottom:10px;
-    color:var(--text);
-  }
-
-  .card p{color:var(--text-muted);font-size:0.96rem;max-width:44ch;}
-
-  .tag{
-    display:inline-block;
-    font-size:0.78rem;
-    color:var(--accent-2);
-    margin-bottom:14px;
-  }
-
-  /* ---------- WHY US ---------- */
-  .why-grid{
-    display:grid;
-    gap:36px;
-  }
-  @media(min-width:760px){
-    .why-grid{grid-template-columns:repeat(3,1fr);}
-  }
-  .why-item h3{
-    font-size:1.1rem;
-    margin-bottom:10px;
-    color:var(--text);
-  }
-  .why-item p{font-size:0.96rem;}
-
-  /* ---------- PROCESS ---------- */
-  .process-list{
-    display:grid;
-    gap:0;
-    border-top:1px solid var(--border);
-  }
-  .process-row{
-    display:grid;
-    grid-template-columns:56px 1fr;
-    gap:20px;
-    padding:28px 0;
-    border-bottom:1px solid var(--border);
-    align-items:start;
-  }
-  .process-num{
-    font-family:'Fraunces', serif;
-    font-size:1.4rem;
-    color:var(--accent);
-  }
-  .process-row h3{
-    font-size:1.1rem;
-    margin-bottom:6px;
-    color:var(--text);
-  }
-  .process-row p{font-size:0.96rem;}
-
-  /* ---------- CONTACT ---------- */
-  .contact-panel{
-    background:var(--bg-alt);
-    border:1px solid var(--border);
-    border-radius:var(--radius-md);
-    padding:48px 32px;
-    display:grid;
-    gap:32px;
-  }
-  @media(min-width:760px){
-    .contact-panel{
-      grid-template-columns:1.1fr 0.9fr;
-      padding:56px;
-    }
-  }
-  .contact-panel h2{
-    font-size:clamp(1.6rem, 2.8vw, 2.1rem);
-    margin-bottom:14px;
-  }
-  .contact-methods{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-  }
-  .contact-method{
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-    padding:18px 20px;
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
-  }
-  .contact-method .label{
-    font-size:0.82rem;
-    color:var(--text-muted);
-  }
-  .contact-method .value{
-    font-size:1.02rem;
-    color:var(--text);
-    font-weight:500;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--border);
-    padding:32px 0;
-  }
-  .footer-row{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    gap:12px;
-    font-size:0.86rem;
-    color:var(--text-muted);
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{transition:none !important;}
-  }
+:root{--bg:#f5f8f6;--ink:#12302b;--mut:#4c635e;--card:#fff;--line:#d5e0dc;--acc:#f2a900;--accink:#12302b;--dk:#12302b;--dkt:#eaf3f0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a18;--ink:#eaf3f0;--mut:#9db5af;--card:#15272400;--line:#274039;--dk:#183530;--card:#152724}}
+:root[data-theme="dark"]{--bg:#0e1a18;--ink:#eaf3f0;--mut:#9db5af;--card:#152724;--line:#274039;--dk:#183530}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Hind,system-ui,sans-serif}
+h1,h2,h3{font-family:"Baloo 2",Hind,sans-serif;line-height:1.2;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .w{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.logo{font:800 22px "Baloo 2",sans-serif;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500;color:var(--mut)}
+nav a:hover{color:var(--ink)}
+.lang{border:1.5px solid var(--ink);background:none;color:var(--ink);border-radius:20px;padding:4px 14px;font:700 15px Hind,sans-serif;cursor:pointer}
+.hero{padding:56px 0 48px}
+.hero h1{font-size:clamp(34px,7vw,62px);font-weight:800;max-width:14em}
+.hero p{max-width:34em;color:var(--mut);font-size:19px;margin:18px 0 26px}
+.btn{display:inline-block;background:var(--acc);color:var(--accink);font-weight:700;text-decoration:none;padding:12px 24px;border-radius:8px;border:0;font-size:17px;font-family:inherit;cursor:pointer}
+.btn.o{background:none;border:1.5px solid var(--ink);color:var(--ink);margin-left:8px}
+section{padding:44px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(26px,4.5vw,36px);margin-bottom:8px}
+.sub{color:var(--mut);margin:0 0 24px;max-width:36em}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 36px}
+.row{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.row h3{font-size:20px}
+.row p{margin:2px 0 0;color:var(--mut);font-size:16px}
+.price{white-space:nowrap;font-weight:700;font-size:15px;color:var(--ink);background:var(--acc);border-radius:6px;padding:2px 10px;text-decoration:none;align-self:flex-start}
+.steps{counter-reset:s;display:grid;gap:14px;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;padding-left:46px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--dk);color:var(--dkt);display:grid;place-items:center;font-weight:700}
+.steps b{display:block;font-size:18px}
+.rev{border:2px dashed var(--line);border-radius:10px;padding:22px;color:var(--mut)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+address{font-style:normal;background:var(--dk);color:var(--dkt);border-radius:10px;padding:20px}
+address a{color:var(--acc)}
+form{display:grid;gap:12px}
+label{font-weight:500;font-size:16px}
+input,select,textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+textarea{min-height:90px}
+footer{padding:26px 0;border-top:1px solid var(--line);color:var(--mut);font-size:15px}
+@media (max-width:520px){.btn.o{margin:10px 0 0}}
 </style>
 </head>
 <body>
+<header><div class="w">
+<a class="logo" href="#home">smartdigitalai</a>
+<nav>
+<a href="#services" data-hi="सेवाएँ" data-en="Services">सेवाएँ</a>
+<a href="#reviews" data-hi="ग्राहक अनुभव" data-en="Reviews">ग्राहक अनुभव</a>
+<a href="#process" data-hi="काम कैसे होता है" data-en="How it works">काम कैसे होता है</a>
+<a href="#contact" data-hi="संपर्क" data-en="Contact">संपर्क</a>
+</nav>
+<button class="lang" id="lang" type="button" aria-label="Language">English</button>
+</div></header>
 
-<header>
-  <nav>
-    <a href="#home" class="logo">smartdigital<span>ai</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#process">How It Works</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="btn btn-primary nav-cta">Start growing online</a>
-    <button class="mobile-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Services</a>
-    <a href="#why">Why Us</a>
-    <a href="#process">How It Works</a>
-    <a href="#contact">Contact</a>
-  </div>
-</header>
+<main id="home">
+<div class="w hero">
+<h1 data-hi="आपका व्यवसाय, ऑनलाइन बढ़ता हुआ।" data-en="Your business, growing online.">आपका व्यवसाय, ऑनलाइन बढ़ता हुआ।</h1>
+<p data-hi="वेबसाइट, विज्ञापन, वीडियो और रोज़ की तकनीकी मदद — सब हम सँभालते हैं, ताकि आप अपना काम सँभालें।" data-en="Websites, ads, videos and everyday tech help — we handle it, so you can run your business.">वेबसाइट, विज्ञापन, वीडियो और रोज़ की तकनीकी मदद — सब हम सँभालते हैं, ताकि आप अपना काम सँभालें।</p>
+<a class="btn" href="#contact" data-hi="ऑनलाइन बढ़ना शुरू करें" data-en="Start growing online">ऑनलाइन बढ़ना शुरू करें</a>
+<a class="btn o" href="#services" data-hi="हमारी सेवाएँ देखें" data-en="See our services">हमारी सेवाएँ देखें</a>
+</div>
 
-<main>
-  <section class="hero wrap" id="home">
-    <div>
-      <p class="eyebrow">Digital services for local businesses</p>
-      <h1>Your business, growing online — the smart way.</h1>
-      <p class="lead">Websites, ads, videos and everyday tech support — built and managed for you, so you can focus on running your business instead of figuring out the internet.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">Start growing online</a>
-        <a href="#services" class="btn btn-ghost">See what we do</a>
-      </div>
-      <p class="hero-note">No jargon. No juggling five different vendors. One team that handles it all.</p>
-    </div>
-    <div class="growth-graphic" aria-hidden="true">
-      <div class="bar" style="height:28%"><span class="cap">Jan</span></div>
-      <div class="bar" style="height:42%"><span class="cap">Feb</span></div>
-      <div class="bar accent2" style="height:38%"><span class="cap">Mar</span></div>
-      <div class="bar" style="height:58%"><span class="cap">Apr</span></div>
-      <div class="bar accent" style="height:80%"><span class="cap">May</span></div>
-      <div class="bar accent" style="height:94%"><span class="cap">Jun</span></div>
-    </div>
-  </section>
+<section id="services"><div class="w">
+<h2 data-hi="हमारी सेवाएँ" data-en="Our services">हमारी सेवाएँ</h2>
+<p class="sub" data-hi="हर काम के लिए अलग-अलग लोग ढूँढने की ज़रूरत नहीं। कीमत आपकी ज़रूरत के हिसाब से बताई जाती है।" data-en="No need to find a different vendor for each job. Price depends on what you need.">हर काम के लिए अलग-अलग लोग ढूँढने की ज़रूरत नहीं। कीमत आपकी ज़रूरत के हिसाब से बताई जाती है।</p>
+<div class="list">
+<div class="row"><div><h3 data-hi="वेबसाइट बनवाएँ" data-en="Website development">वेबसाइट बनवाएँ</h3><p data-hi="तेज़, मोबाइल पर बढ़िया, कुछ ही दिनों में लाइव।" data-en="Fast, mobile-ready, live within days.">तेज़, मोबाइल पर बढ़िया, कुछ ही दिनों में लाइव।</p></div><a class="price" href="#contact" data-hi="कीमत: संपर्क करें" data-en="Price: contact us">कीमत: संपर्क करें</a></div>
+<div class="row"><div><h3 data-hi="ऑनलाइन विज्ञापन" data-en="Digital advertising">ऑनलाइन विज्ञापन</h3><p data-hi="Google और Instagram पर आपके इलाके के ग्राहकों तक।" data-en="Google and Instagram ads that reach local customers.">Google और Instagram पर आपके इलाके के ग्राहकों तक।</p></div><a class="price" href="#contact" data-hi="कीमत: संपर्क करें" data-en="Price: contact us">कीमत: संपर्क करें</a></div>
+<div class="row"><div><h3 data-hi="वीडियो कंटेंट" data-en="Video content">वीडियो कंटेंट</h3><p data-hi="रील्स, YouTube और WhatsApp status के लिए छोटे वीडियो।" data-en="Short videos for reels, YouTube and WhatsApp status.">रील्स, YouTube और WhatsApp status के लिए छोटे वीडियो।</p></div><a class="price" href="#contact" data-hi="कीमत: संपर्क करें" data-en="Price: contact us">कीमत: संपर्क करें</a></div>
+<div class="row"><div><h3 data-hi="सोशल मीडिया प्रमोशन" data-en="Social media promotion">सोशल मीडिया प्रमोशन</h3><p data-hi="नियमित पोस्ट और एक जैसी ब्रांडिंग।" data-en="Regular posts and consistent branding.">नियमित पोस्ट और एक जैसी ब्रांडिंग।</p></div><a class="price" href="#contact" data-hi="कीमत: संपर्क करें" data-en="Price: contact us">कीमत: संपर्क करें</a></div>
+<div class="row"><div><h3 data-hi="ग्रोथ सलाह" data-en="Growth consulting">ग्रोथ सलाह</h3><p data-hi="कौन-से नए टूल आपके काम के हैं, साफ़ सलाह।" data-en="Straight advice on which tools are worth it.">कौन-से नए टूल आपके काम के हैं, साफ़ सलाह।</p></div><a class="price" href="#contact" data-hi="कीमत: संपर्क करें" data-en="Price: contact us">कीमत: संपर्क करें</a></div>
+<div class="row"><div><h3 data-hi="लगातार सपोर्ट" data-en="Ongoing support">लगातार सपोर्ट</h3><p data-hi="कुछ भी ठीक कराना हो, एक ही नंबर पर कॉल करें।" data-en="One number to call when something needs fixing.">कुछ भी ठीक कराना हो, एक ही नंबर पर कॉल करें।</p></div><a class="price" href="#contact" data-hi="कीमत: संपर्क करें" data-en="Price: contact us">कीमत: संपर्क करें</a></div>
+</div>
+</div></section>
 
-  <hr class="divider wrap">
+<section id="reviews"><div class="w">
+<h2 data-hi="ग्राहकों का अनुभव" data-en="Customer experience">ग्राहकों का अनुभव</h2>
+<div class="rev" data-hi="यहाँ हमारे ग्राहकों के रिव्यू और किए गए काम के नमूने दिखाए जाएँगे।" data-en="Customer reviews and samples of our work will appear here.">यहाँ हमारे ग्राहकों के रिव्यू और किए गए काम के नमूने दिखाए जाएँगे।</div>
+</div></section>
 
-  <section class="section wrap" id="services">
-    <div class="section-head">
-      <span class="tag">What we do</span>
-      <h2>Everything your business needs to show up online</h2>
-      <p>Six services, one team — no need to explain your business to a new vendor every time.</p>
-    </div>
-    <div class="services-grid">
-      <div class="card">
-        <h3>Website Development</h3>
-        <p>A website built to bring in customers, not just look good. Fast, mobile-ready, and live within days — not months.</p>
-      </div>
-      <div class="card">
-        <h3>Digital Advertising</h3>
-        <p>Google and Instagram ads that reach people actually searching for what you sell, in your area.</p>
-      </div>
-      <div class="card">
-        <h3>Video Content</h3>
-        <p>Short videos for your products, offers, and story — made for reels, YouTube, and WhatsApp status.</p>
-      </div>
-      <div class="card">
-        <h3>Social Media & Promotion</h3>
-        <p>Regular posts, consistent branding, and steady promotion so your business stays visible week after week.</p>
-      </div>
-      <div class="card">
-        <h3>Growth Consulting</h3>
-        <p>Straight advice on which new tools and platforms are actually worth your time and money.</p>
-      </div>
-      <div class="card">
-        <h3>Ongoing Support</h3>
-        <p>One number to call when something needs fixing or explaining. Real support, not a ticket queue.</p>
-      </div>
-    </div>
-  </section>
+<section id="process"><div class="w">
+<h2 data-hi="पहली कॉल से लाइव होने तक" data-en="From first call to going live">पहली कॉल से लाइव होने तक</h2>
+<ol class="steps">
+<li><b data-hi="आपके व्यवसाय पर बात" data-en="We talk about your business">आपके व्यवसाय पर बात</b><span data-hi="आप क्या बेचते हैं, ग्राहक कौन हैं और कहाँ बढ़ना है।" data-en="What you sell, who your customers are, where you want to grow.">आप क्या बेचते हैं, ग्राहक कौन हैं और कहाँ बढ़ना है।</span></li>
+<li><b data-hi="बनाना और लॉन्च" data-en="We build and launch">बनाना और लॉन्च</b><span data-hi="आपकी मंज़ूरी के बाद ही कुछ भी लाइव होता है।" data-en="Nothing goes live before you approve it.">आपकी मंज़ूरी के बाद ही कुछ भी लाइव होता है।</span></li>
+<li><b data-hi="सँभालना और बढ़ाना" data-en="We manage and grow">सँभालना और बढ़ाना</b><span data-hi="अपडेट, नया कंटेंट और ईमानदार रिपोर्ट कि क्या काम कर रहा है।" data-en="Updates, new content and honest check-ins on what works.">अपडेट, नया कंटेंट और ईमानदार रिपोर्ट कि क्या काम कर रहा है।</span></li>
+</ol>
+</div></section>
 
-  <hr class="divider wrap">
-
-  <section class="section wrap" id="why">
-    <div class="section-head">
-      <span class="tag">Why smartdigitalai</span>
-      <h2>Built for businesses, not boardrooms</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <h3>We speak your language</h3>
-        <p>Every recommendation is explained in plain terms — what it does, what it costs, and whether it's actually worth it for your business.</p>
-      </div>
-      <div class="why-item">
-        <h3>One team, every service</h3>
-        <p>Your website, ads, videos and support all come from the same people — no coordinating between five different freelancers.</p>
-      </div>
-      <div class="why-item">
-        <h3>Built for local business</h3>
-        <p>No generic templates. Every site and campaign is built around how your specific business actually gets customers.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider wrap">
-
-  <section class="section wrap" id="process">
-    <div class="section-head">
-      <span class="tag">How it works</span>
-      <h2>From first call to going live</h2>
-    </div>
-    <div class="process-list">
-      <div class="process-row">
-        <span class="process-num">1</span>
-        <div>
-          <h3>We talk about your business</h3>
-          <p>A short conversation about what you sell, who your customers are, and where you want to grow.</p>
-        </div>
-      </div>
-      <div class="process-row">
-        <span class="process-num">2</span>
-        <div>
-          <h3>We build and launch</h3>
-          <p>Your website, ads, or content get built and put live — you review and approve before anything goes public.</p>
-        </div>
-      </div>
-      <div class="process-row">
-        <span class="process-num">3</span>
-        <div>
-          <h3>We manage and grow</h3>
-          <p>Ongoing updates, new content, and honest check-ins on what's working — so your online presence keeps improving.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider wrap">
-
-  <section class="section wrap" id="contact">
-    <div class="contact-panel">
-      <div>
-        <h2>Let's get your business online</h2>
-        <p>Tell us a bit about your business and what you need — we'll get back to you with next steps, no pressure.</p>
-      </div>
-      <div class="contact-methods">
-        <a class="contact-method" href="mailto:shivanandmishra1236@gmail.com">
-          <span class="label">Email</span>
-          <span class="value">shivanandmishra1236@gmail.com</span>
-        </a>
-        <a class="contact-method" href="tel:+917388041688">
-          <span class="label">Phone</span>
-          <span class="value">+91 7388041688</span>
-        </a>
-        <a class="contact-method" href="https://wa.me/917388041688" target="_blank" rel="noopener">
-          <span class="label">WhatsApp</span>
-          <span class="value">Message us directly</span>
-        </a>
-      </div>
-    </div>
-  </section>
+<section id="contact"><div class="w two">
+<div>
+<h2 data-hi="हमसे संपर्क करें" data-en="Contact us">हमसे संपर्क करें</h2>
+<p class="sub" data-hi="अपने व्यवसाय के बारे में बताएँ, हम कीमत और अगले कदम के साथ जवाब देंगे।" data-en="Tell us about your business. We'll reply with the price and next steps.">अपने व्यवसाय के बारे में बताएँ, हम कीमत और अगले कदम के साथ जवाब देंगे।</p>
+<address>
+<strong data-hi="हमारा पता" data-en="Our address">हमारा पता</strong><br>
+Vill &amp; Post – Fatehpur Kamasin<br>District – Ayodhya<br>Uttar Pradesh – 224141<br><br>
+<a href="tel:+917388041688">+91 7388041688</a><br>
+<a href="https://wa.me/917388041688">WhatsApp</a><br>
+<a href="mailto:shivanandmishra1236@gmail.com">shivanandmishra1236@gmail.com</a>
+</address>
+</div>
+<form id="f">
+<label for="n" data-hi="आपका नाम" data-en="Your name">आपका नाम</label><input id="n" required autocomplete="name">
+<label for="p" data-hi="फ़ोन नंबर" data-en="Phone number">फ़ोन नंबर</label><input id="p" type="tel" required autocomplete="tel">
+<label for="s" data-hi="कौन-सी सेवा चाहिए" data-en="Service needed">कौन-सी सेवा चाहिए</label>
+<select id="s"><option>Website</option><option>Ads</option><option>Video</option><option>Social media</option><option>Consulting</option><option>Support</option></select>
+<label for="m" data-hi="संदेश" data-en="Message">संदेश</label><textarea id="m"></textarea>
+<button class="btn" type="submit" data-hi="WhatsApp पर भेजें" data-en="Send on WhatsApp">WhatsApp पर भेजें</button>
+</form>
+</div></section>
 </main>
-
-<footer>
-  <div class="wrap footer-row">
-    <span>smartdigitalai</span>
-    <span>Digital growth for local businesses</span>
-  </div>
-</footer>
+<footer><div class="w">smartdigitalai · Fatehpur Kamasin, Ayodhya, Uttar Pradesh 224141</div></footer>
 
 <script>
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('mobileMenu');
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+var cur='hi',btn=document.getElementById('lang');
+function setLang(l){cur=l;document.documentElement.lang=l;
+document.querySelectorAll('[data-hi]').forEach(function(e){e.textContent=e.getAttribute('data-'+l)});
+btn.textContent=l==='hi'?'English':'हिंदी';
+document.title=l==='hi'?'smartdigitalai — स्थानीय व्यवसायों के लिए डिजिटल ग्रोथ':'smartdigitalai — Digital growth for local businesses';
+try{localStorage.setItem('lang',l)}catch(e){}}
+btn.onclick=function(){setLang(cur==='hi'?'en':'hi')};
+try{var sv=localStorage.getItem('lang');if(sv&&sv!=='hi')setLang(sv)}catch(e){}
+document.getElementById('f').onsubmit=function(ev){ev.preventDefault();
+var t='Name: '+n.value+'\nPhone: '+p.value+'\nService: '+s.value+'\nMessage: '+m.value;
+window.open('https://wa.me/917388041688?text='+encodeURIComponent(t),'_blank')};
 </script>
-
 </body>
 </html>
